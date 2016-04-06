@@ -13,6 +13,7 @@ using System.Management;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Net.Sockets;
+using icsmanager;
 
 
 namespace VarmaHotspot
@@ -85,17 +86,20 @@ namespace VarmaHotspot
         public int ExitCode;
 
     }
-        public struct ConnectedDevice
+    public struct ConnectedDevice
     {
         public string Name;
         public string MacAddress;
     }
 
-
+    
 
 
     public class Hotspot
     {
+
+        public ICSManager ics = new ICSManager();
+
         private const string STOP_ARGUMENTS = "wlan stop hostednetwork";
         private const string SHOW_HOTSPOT = "wlan show hostednetwork";
         private const string SHOW_DRIVERS = "wlan show drivers";
@@ -243,7 +247,7 @@ namespace VarmaHotspot
                 return proc_output;
 
             }
-            
+
         } //Executes commands and return <c>ProcessOutput</c> which contains Output & ExitCode.
 
         public ProcessResult Start()
@@ -299,7 +303,10 @@ namespace VarmaHotspot
             return result;
         }
 
-       
+        public bool SetICS(string sPublicName,string sPrivateName,bool Setable)
+        {
+            return ics.EnableDisableICS(sPublicName, sPrivateName, Setable);
+        }
 
 
 
@@ -651,6 +658,8 @@ namespace VarmaHotspot
 
 
 
+
+
     }
 
 
@@ -879,7 +888,7 @@ namespace VarmaHotspot
 
     }
 
-    
+
 
 }
 
