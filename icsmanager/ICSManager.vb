@@ -1,10 +1,21 @@
-﻿Public Class ICSManager
+﻿''' <summary>
+''' Class which contain function to enable or disable ICS
+''' </summary>
+''' <remarks></remarks>
+Public Class ICSManager
 
     Sub New()
 
     End Sub
 
-
+    ''' <summary>
+    ''' To Enable or Disable ICS(Internet Connection Sharing)
+    ''' </summary>
+    ''' <param name="sPublicConnectionName">Name of Active Connection you want to share</param>
+    ''' <param name="sPrivateConnectionName">Name of your Connection you want to share with</param>
+    ''' <param name="bEnable">Enable or Disable</param>
+    ''' <returns>True if successful , False if failed</returns>
+    ''' <remarks></remarks>
     Private Function EnableDisableICS(ByVal sPublicConnectionName As String, ByVal sPrivateConnectionName As String, ByVal bEnable As Boolean) As Boolean
 
         Try
