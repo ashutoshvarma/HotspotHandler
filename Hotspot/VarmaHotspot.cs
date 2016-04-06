@@ -19,7 +19,9 @@ using icsmanager;
 namespace VarmaHotspot
 {
 
-
+    /// <summary>
+    /// NetworkAdapter structure which contains basic properties.
+    /// </summary>
     public struct NetworkAdapter
     {
 
@@ -80,21 +82,31 @@ namespace VarmaHotspot
         Other
     }
 
+    /// <summary>
+    /// ProcessResult,contains Output & ExitCode of Process.
+    /// </summary>
     public struct ProcessResult
     {
         public string Output;
         public int ExitCode;
 
     }
+
+    /// <summary>
+    /// Conatins Mac & Name of device.
+    /// </summary>
     public struct ConnectedDevice
     {
         public string Name;
         public string MacAddress;
     }
 
-    
 
 
+    /// <summary>
+    /// Class which have main methods like <c>Start()</c>,<c>Stop()</c>,<c>Execute()</c>. It also have reference to <c>icsmanager</c> to manage ICS.
+    /// </summary>
+    /// <remarks>Sub class are <c>Details</c> and <c>MacLookup</c></remarks>
     public class Hotspot
     {
 
@@ -109,7 +121,9 @@ namespace VarmaHotspot
         private string m_ssid = "";
 
 
-
+        /// <summary>
+        /// Password to hostednetwork
+        /// </summary>
         public string Key
         {
             get
@@ -119,6 +133,10 @@ namespace VarmaHotspot
 
         } //Readonly 
 
+
+        /// <summary>
+        /// SSID of hostednetwork
+        /// </summary>
         public string SSID
         {
             get
@@ -129,16 +147,34 @@ namespace VarmaHotspot
         } //Readonly 
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ssid"></param>
+        /// <param name="pass"></param>
         public Hotspot(string ssid, string pass)
         {
             m_key = pass;
             m_ssid = ssid;
         }
+
+
+        /// <summary>
+        /// Hotspot object to get various functions without passing details of Hotspot , do not use methods like <c>Start()</c>,<c>Stop()</c>.
+        /// </summary>
+        /// <remarks>It contains <c>IsHostedNetworkSupported()</c> , <c>HostedNetworkStatus()</c> methods</remarks>
+        /// 
         public Hotspot()
         {
 
         }
 
+
+        /// <summary>
+        /// Returns whether HostedNetwork is Supported or Not.
+        /// </summary>
+        /// <param name="Error">return <code>"HOSTEDNETWORK_NOT_SUPPORTED"</code> , <code>"ADAPTER_NOT_FOUND"</code> , <code>"SUCCESS"</code></param>
+        /// <returns>True-if supported & flase-if not supported.</returns>
         public bool IsHostedNetworkSupported(out string Error)
         {
             HostedNetworkAdapter adap = new HostedNetworkAdapter();
@@ -178,6 +214,12 @@ namespace VarmaHotspot
 
         }
 
+
+        /// <summary>
+        /// Status of HostedNetwork Adapter.
+        /// </summary>
+        /// <returns>True-if Adapter running & False-if adapter not running</returns>
+        /// <remarks>It checks <c>NetConnectionStatus</c> , <c>NetEnabled</c> , <c>GUID</c> to tell whether running or not.</remarks>
         public bool HostedNetworkStatus()
         {
             HostedNetworkAdapter adap = new HostedNetworkAdapter();
@@ -194,10 +236,14 @@ namespace VarmaHotspot
                 return false;
             }
 
-
-
         }
 
+
+        /// <summary>
+        /// Converts UNICODE to ASCII strings.
+        /// </summary>
+        /// <param name="a">String to convert</param>
+        /// <returns>ASCII string</returns>
         public string ConvertedASCII(string a)
         {
             ASCIIEncoding ascii = new ASCIIEncoding();
@@ -206,6 +252,14 @@ namespace VarmaHotspot
 
             return start;
         }  //ConvertedASCII Function
+
+
+        /// <summary>
+        /// Executes arguments to netsh.exe
+        /// </summary>
+        /// <param name="arguments">Arguments to pass</param>
+        /// <returns>Return a <c>ProcessResult</c> type which contain Output & ExitCode</returns>
+        /// <remarks>If due to some error enable to start process , return <c>ProcessResult</c> with ExitCode=1 & Output=<code>ex.Message</code></remarks>
         public ProcessResult Execute(string arguments)
         {
             ProcessResult proc_output = new ProcessResult();
@@ -250,6 +304,12 @@ namespace VarmaHotspot
 
         } //Executes commands and return <c>ProcessOutput</c> which contains Output & ExitCode.
 
+
+        /// <summary>
+        /// Start the hotspot
+        /// </summary>
+        /// <returns>ProcessResult type</returns>
+        /// <remarks>it use <c>Execute()</c> function to stop hotspot which already use<code>try .. catch</code> so no need to use then again</remarks>
         public ProcessResult Start()
         {
             //convert UNICODE to ASCII         
@@ -261,6 +321,13 @@ namespace VarmaHotspot
 
             return result;
         }
+
+
+        /// <summary>
+        /// Stop the hotspot
+        /// </summary>
+        /// <returns>ProcessResult type</returns>
+        /// <remarks>it use <c>Execute()</c> function to stop hotspot which already use<code>try .. catch</code> so no need to use then again</remarks>
         public ProcessResult Stop()
         {
             ProcessResult result = new ProcessResult();
@@ -292,8 +359,13 @@ namespace VarmaHotspot
 
             return restart;
 
-        } // It stops the hotspot and then start again, ***problem is if hotspot is already stopped.****
+        } // It stops the hotspot and then start again
 
+
+        /// <summary>
+        /// Get the raw output of details of hotspot by <c>Ececute()</c> function
+        /// </summary>
+        /// <returns>ProcessResult type </returns>
         public ProcessResult Detail()
         {
 
@@ -303,7 +375,16 @@ namespace VarmaHotspot
             return result;
         }
 
-        public bool SetICS(string sPublicName,string sPrivateName,bool Setable)
+
+        /// <summary>
+        /// To Enable or Disable ICS(Internet Connection Sharing)
+        /// </summary>
+        /// <param name="sPublicConnectionName">Name of Active Connection you want to share</param>
+        /// <param name="sPrivateConnectionName">Name of your Connection you want to share with</param>
+        /// <param name="bEnable">Enable or Disable</param>
+        /// <returns>True if successful , False if failed</returns>
+        /// <remarks></remarks>
+        public bool SetICS(string sPublicName, string sPrivateName, bool Setable)
         {
             return ics.EnableDisableICS(sPublicName, sPrivateName, Setable);
         }
@@ -311,15 +392,28 @@ namespace VarmaHotspot
 
 
         // SUB - CLASSES....................................................................
+
+        /// <summary>
+        /// Details of Hotspot by using raw output of <c> wlan show hostednetwork</c> command
+        /// </summary>
         public class Details
         {
 
             private string[] strs;
 
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="raw">raw output of netsh command</param>
             public Details(string raw)
             {
                 Refresh(raw);
             }//Constructor :- When raw output is given - fast method
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="raw">raw output of netsh command</param>
             public void Refresh(string raw)
             {
                 RichTextBox rtb = new RichTextBox();
@@ -328,7 +422,7 @@ namespace VarmaHotspot
                 rtb.Dispose();
             } // Refresh the details with given raw data - - fast method
 
-            public ProcessResult pvtExecute(string arguments)
+            private ProcessResult pvtExecute(string arguments)
             {
                 Process proc = new Process
                 {
@@ -596,6 +690,11 @@ namespace VarmaHotspot
             }
 
         }
+
+
+        /// <summary>
+        /// Gives details about mac address
+        /// </summary>
         public class MacLookUp
         {
             private string mac;
@@ -658,13 +757,11 @@ namespace VarmaHotspot
 
 
 
-
-
     }
 
 
 
-
+    
     public class Win32_NetAdapter
     {
 
@@ -679,6 +776,11 @@ namespace VarmaHotspot
 
         } // Constructor 
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query">custom query form Win32_NetworkAdapter , do not to select any specific property</param>
         public Win32_NetAdapter(string query)
         {
             Refresh(query);
@@ -689,6 +791,11 @@ namespace VarmaHotspot
             manageObjSearcher = new ManagementObjectSearcher(query);
         }
 
+
+        /// <summary>
+        /// All the NetworkAdapter in Computer.
+        /// </summary>
+        /// <returns>Array of NetworkAdapter .</returns>
         public NetworkAdapter[] GetAdapters()
         {
 
@@ -723,6 +830,13 @@ namespace VarmaHotspot
             return local;
         }
 
+
+        /// <summary>
+        /// Enables or Disable the NetworkAdapter
+        /// </summary>
+        /// <param name="deviceId">Device ID of adapter to disable/enable</param>
+        /// <param name="enableORDisable">Enable or Disable</param>
+        /// <returns>True-if successful & False-if failed.</returns>
         public bool SetAdapter(string deviceId, bool enableORDisable)
         {
             try
@@ -769,6 +883,12 @@ namespace VarmaHotspot
 
     }
 
+
+
+
+    /// <summary>
+    /// Derived from <c>Win32_NetAdapter</c> class to provide properties and method of HostedNetworkAdapter
+    /// </summary>
     public class HostedNetworkAdapter : Win32_NetAdapter
     {
         public HostedNetworkAdapter()
@@ -778,6 +898,12 @@ namespace VarmaHotspot
 
         }
 
+
+
+        /// <summary>
+        /// Hostednetwork Adapter
+        /// </summary>
+        /// <returns>Adapter which is used to create Hotspot - <c>'Microsoft Hosted Network Virtual Adapter'</c> & <c>'Microsoft Virtual Miniport Adapter'</c> </returns>
         public NetworkAdapter GetAdapter()
         {
             NetworkAdapter[] adapters = base.GetAdapters();
@@ -792,6 +918,11 @@ namespace VarmaHotspot
             }
 
         }
+
+        /// <summary>
+        /// Enables the Virtual HostedNetwork adapter
+        /// </summary>
+        /// <returns>True-if successful & False-if failed.</returns>
         public bool EnableAdapter()
         {
             try
@@ -805,6 +936,11 @@ namespace VarmaHotspot
             }
         }
 
+
+        /// <summary>
+        /// Disable the Virtual HostedNetwork adapter
+        /// </summary>
+        /// <returns>True-if successful & False-if failed.</returns>
         public bool DisableAdapter()
         {
             try
@@ -827,6 +963,12 @@ namespace VarmaHotspot
 
     }
 
+
+
+
+    /// <summary>
+    /// Have <c>GetBestNetworkInterface()</c> function
+    /// </summary>
     public class Win32ApiCalls
     {
         [DllImport("iphlpapi.dll", CharSet = CharSet.Auto)]
@@ -852,6 +994,15 @@ namespace VarmaHotspot
 
             return ipv6Interface;
         }
+
+
+
+        /// <summary>
+        /// Gives NetworkInterface which is best to reach address given by you.
+        /// </summary>
+        /// <param name="website">web address to reach</param>
+        /// <returns>NetworkInterface type which is best to reach address given by you.</returns>
+        /// <remarks>pass proper web address like <c>www.google.com</c></remarks>
         public NetworkInterface GetBestNetworkInterface(string website)
         {
             try
