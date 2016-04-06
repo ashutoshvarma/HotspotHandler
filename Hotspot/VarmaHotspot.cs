@@ -762,11 +762,10 @@ namespace VarmaHotspot
 
 
     
-    public class Win32_NetAdapter
+    public class Win32_NetAdapter : IDisposable
     {
 
         private ManagementObjectSearcher manageObjSearcher;
-
 
 
 
@@ -972,7 +971,7 @@ namespace VarmaHotspot
     public class Win32ApiCalls
     {
         [DllImport("iphlpapi.dll", CharSet = CharSet.Auto)]
-        public static extern int GetBestInterface(UInt32 destAddr, out UInt32 bestIfIndex);
+        private static extern int GetBestInterface(UInt32 destAddr, out UInt32 bestIfIndex);
 
         private NetworkInterface GetNetworkInterfaceByIndex(uint index)
         {
