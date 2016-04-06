@@ -16,7 +16,7 @@ Public Class ICSManager
     ''' <param name="bEnable">Enable or Disable</param>
     ''' <returns>True if successful , False if failed</returns>
     ''' <remarks></remarks>
-    Private Function EnableDisableICS(ByVal sPublicConnectionName As String, ByVal sPrivateConnectionName As String, ByVal bEnable As Boolean) As Boolean
+    Public Function EnableDisableICS(ByVal sPublicConnectionName As String, ByVal sPrivateConnectionName As String, ByVal bEnable As Boolean) As Boolean
 
         Try
 
