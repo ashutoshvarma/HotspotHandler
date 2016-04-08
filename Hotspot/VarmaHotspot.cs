@@ -437,7 +437,7 @@ namespace VarmaHotspot
                     }
                 };
 
-                proc.PriorityClass = ProcessPriorityClass.High;
+                
 
                 proc.Start();
 
