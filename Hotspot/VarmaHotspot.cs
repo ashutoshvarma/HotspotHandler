@@ -1,4 +1,32 @@
-﻿using System;
+﻿
+//MIT License
+
+//Copyright (c) 2016 Ashutosh Varma
+
+//Permission is hereby granted, free of charge, to any person obtaining a copy
+//of this software and associated documentation files (the "Software"), to deal
+//in the Software without restriction, including without limitation the rights
+//to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//copies of the Software, and to permit persons to whom the Software is
+//furnished to do so, subject to the following conditions:
+
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//SOFTWARE.
+
+
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -113,6 +141,7 @@ namespace VarmaHotspot
         public ICSManager ics = new ICSManager();
 
         private const string STOP_ARGUMENTS = "wlan stop hostednetwork";
+        private const string START_ARGUMENTS = "wlan start hostednetwork";
         private const string SHOW_HOTSPOT = "wlan show hostednetwork";
         private const string SHOW_DRIVERS = "wlan show drivers";
 
@@ -258,7 +287,7 @@ namespace VarmaHotspot
         /// Executes arguments to netsh.exe
         /// </summary>
         /// <param name="arguments">Arguments to pass</param>
-        /// <returns>Return a <c>ProcessResult</c> type which contain Output & ExitCode</returns>
+        /// <returns>Return ProcessResult type which contain Output & ExitCode</returns>
         /// <remarks>If due to some error enable to start process , return <c>ProcessResult</c> with ExitCode=1 & Output=<code>ex.Message</code></remarks>
         public ProcessResult Execute(string arguments)
         {
@@ -316,10 +345,19 @@ namespace VarmaHotspot
             string UnicodeArgs = String.Format("wlan set hostednetwork mode=allow ssid={0} key={1}", SSID, Key);
             string startArgs = ConvertedASCII(UnicodeArgs);
 
-            ProcessResult result = new ProcessResult();
-            result = Execute(startArgs);
+            ProcessResult result = Execute(startArgs);
+            ProcessResult resStart ;
+            if (result.ExitCode == 0)
+            {
+                resStart = Execute(START_ARGUMENTS);
+                return resStart;
+            }
+            else
+            {
+                return result;
+            }
 
-            return result;
+           
         }
 
 
@@ -386,7 +424,10 @@ namespace VarmaHotspot
         /// <remarks></remarks>
         public bool SetICS(string sPublicName, string sPrivateName, bool Setable)
         {
+            
             return ics.EnableDisableICS(sPublicName, sPrivateName, Setable);
+          
+            
         }
 
 
@@ -645,11 +686,7 @@ namespace VarmaHotspot
 
             }
 
-            [Browsable(true)]
-            [ReadOnly(true)]
-            [Description("Details of Devices Connected")]
-            [Category("Basic Details")]
-            [DisplayName("Connected Devices")]
+            [Browsable(false)]           
             public ConnectedDevice[] Devices
             {
                 get
@@ -968,12 +1005,12 @@ namespace VarmaHotspot
     /// <summary>
     /// Have <c>GetBestNetworkInterface()</c> function
     /// </summary>
-    public class Win32ApiCalls
+    public class NativeHelper
     {
         [DllImport("iphlpapi.dll", CharSet = CharSet.Auto)]
         private static extern int GetBestInterface(UInt32 destAddr, out UInt32 bestIfIndex);
 
-        private NetworkInterface GetNetworkInterfaceByIndex(uint index)
+        private static NetworkInterface GetNetworkInterfaceByIndex(uint index)
         {
             // Search in all network interfaces that support IPv4.
             NetworkInterface ipv4Interface = (from thisInterface in NetworkInterface.GetAllNetworkInterfaces()
@@ -1001,8 +1038,8 @@ namespace VarmaHotspot
         /// </summary>
         /// <param name="website">web address to reach</param>
         /// <returns>NetworkInterface type which is best to reach address given by you.</returns>
-        /// <remarks>pass proper web address like <c>www.google.com</c></remarks>
-        public NetworkInterface GetBestNetworkInterface(string website)
+        /// <remarks>pass proper web address like www.google.com</remarks>
+        public static  NetworkInterface GetBestNetworkInterface(string website)
         {
             try
             {

@@ -18,6 +18,8 @@ Public Class ICSManager
     ''' <remarks></remarks>
     Public Function EnableDisableICS(ByVal sPublicConnectionName As String, ByVal sPrivateConnectionName As String, ByVal bEnable As Boolean) As Boolean
 
+
+
         Try
 
             Dim bFound As Boolean
@@ -69,6 +71,9 @@ Public Class ICSManager
 
         Catch ex As Exception
             Return False
+
+
+
         End Try
 
 
