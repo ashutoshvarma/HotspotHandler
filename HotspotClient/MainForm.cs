@@ -378,9 +378,9 @@ namespace HotspotClient
         {
             try
             {
-
+                groupControl.Focus();                //  just to avoid selecting text of txtSSID
                 switch (btnHotspot.Text)
-                {
+                { 
                     case "Stop":
                         btnHotspot.Enabled = false;
                         workerStop.RunWorkerAsync();
@@ -760,7 +760,7 @@ namespace HotspotClient
                     {
                         Tuple<string, string> tup = (Tuple<string, string>)e.Result;
 
-                        if (tup.Item1 == "ERROR_STARTING") InfoBox.ShowDialogStatic(new Size(300, 170), "Error Starting", tup.Item2);
+                        if (tup.Item1 == "ERROR_STARTING") InfoBox.ShowDialogStatic(new Size(350, 200), "Error Starting", tup.Item2);
 
                     }
                     break;

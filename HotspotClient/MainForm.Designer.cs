@@ -707,12 +707,12 @@
             // 
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.Location = new System.Drawing.Point(38, 162);
+            this.linkLabel3.Location = new System.Drawing.Point(39, 162);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(326, 15);
+            this.linkLabel3.Size = new System.Drawing.Size(327, 15);
             this.linkLabel3.TabIndex = 9;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "https://github.com/ashutoshvarma/HotspotHandler";
+            this.linkLabel3.Text = "http://ashutoshvarma.me/projects/hotspothandler/";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // label9
@@ -721,9 +721,9 @@
             this.label9.Font = new System.Drawing.Font("Raleway", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(13, 140);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(155, 22);
+            this.label9.Size = new System.Drawing.Size(179, 22);
             this.label9.TabIndex = 8;
-            this.label9.Text = "Project Source :-";
+            this.label9.Text = "Project Webpage :-";
             // 
             // treeView1
             // 
@@ -863,11 +863,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(186, 42);
+            this.label2.Location = new System.Drawing.Point(178, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.Size = new System.Drawing.Size(84, 15);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Version - 1.0";
+            this.label2.Text = "Version - 1.0.1";
             // 
             // label1
             // 
@@ -950,6 +950,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(465, 583);
             this.Controls.Add(this.processbar);
             this.Controls.Add(this.TabControl1);
@@ -962,7 +963,6 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HotspotHandler";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Enter += new System.EventHandler(this.MainForm_Enter);
