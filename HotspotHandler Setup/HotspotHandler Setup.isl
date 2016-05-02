@@ -341,6 +341,8 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
+		<row><td>AutomaticUpdater.dll</td><td>{922FD803-D054-4135-83FB-2F24C86E1B08}</td><td>INSTALLDIR</td><td>2</td><td/><td>automaticupdater.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>CrashReporter.NET.dll</td><td>{D8B95539-9DF0-40FA-AAAD-088EC81E8DAD}</td><td>INSTALLDIR</td><td>2</td><td/><td>crashreporter.net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>HotspotClient.exe</td><td>{7702400A-83B5-4697-A0A1-2994C6A23FC0}</td><td>INSTALLDIR</td><td>2</td><td/><td>hotspotclient.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{D62D3E2A-DF22-469F-993B-3F166BFB7E92}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>MaterialSkin.dll</td><td>{8DDBB5FF-60DA-485B-9955-76784E802831}</td><td>INSTALLDIR</td><td>2</td><td/><td>materialskin.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -348,6 +350,7 @@
 		<row><td>Notification.dll</td><td>{A7E2D38C-03A5-4C1E-A707-FA5714BE0FF7}</td><td>INSTALLDIR</td><td>2</td><td/><td>notification.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>VarmaHotspot.dll</td><td>{D81EDB8E-980C-4D40-91E8-18590EBF18B0}</td><td>INSTALLDIR</td><td>2</td><td/><td>varmahotspot.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>icsmanager.dll</td><td>{A65603A5-2AAE-49D7-9688-BADA053D317B}</td><td>INSTALLDIR</td><td>2</td><td/><td>icsmanager.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>wyUpdate.exe</td><td>{5D60D5DE-6708-46B7-A771-A015902320E8}</td><td>INSTALLDIR</td><td>2</td><td/><td>wyupdate.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1058,6 +1061,8 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>INSTALLDIR</td><td>AutomaticUpdater.dll</td></row>
+		<row><td>INSTALLDIR</td><td>CrashReporter.NET.dll</td></row>
 		<row><td>INSTALLDIR</td><td>HotspotClient.exe</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>INSTALLDIR</td><td>MaterialSkin.dll</td></row>
@@ -1065,6 +1070,7 @@
 		<row><td>INSTALLDIR</td><td>Notification.dll</td></row>
 		<row><td>INSTALLDIR</td><td>VarmaHotspot.dll</td></row>
 		<row><td>INSTALLDIR</td><td>icsmanager.dll</td></row>
+		<row><td>INSTALLDIR</td><td>wyUpdate.exe</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1878,6 +1884,8 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AlwaysInstall</td><td>AutomaticUpdater.dll</td></row>
+		<row><td>AlwaysInstall</td><td>CrashReporter.NET.dll</td></row>
 		<row><td>AlwaysInstall</td><td>HotspotClient.exe</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>MaterialSkin.dll</td></row>
@@ -1885,6 +1893,7 @@
 		<row><td>AlwaysInstall</td><td>Notification.dll</td></row>
 		<row><td>AlwaysInstall</td><td>VarmaHotspot.dll</td></row>
 		<row><td>AlwaysInstall</td><td>icsmanager.dll</td></row>
+		<row><td>AlwaysInstall</td><td>wyUpdate.exe</td></row>
 	</table>
 
 	<table name="File">
@@ -1899,12 +1908,16 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
+		<row><td>automaticupdater.dll</td><td>AutomaticUpdater.dll</td><td>AutomaticUpdater.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\AutomaticUpdater.dll</td><td>1</td><td/></row>
+		<row><td>client.wyc</td><td>ISX_DEFAULTCOMPONENT1</td><td>client.wyc</td><td>0</td><td/><td/><td/><td>1</td><td>D:\software and setups\HotspotHandler\Updates\Updates\wyUpdate\client.wyc</td><td>1</td><td/></row>
+		<row><td>crashreporter.net.dll</td><td>CrashReporter.NET.dll</td><td>CrashReporter.NET.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\CrashReporter.NET.dll</td><td>1</td><td/></row>
 		<row><td>hotspotclient.exe</td><td>HotspotClient.exe</td><td>HotspotClient.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\HotspotClient.exe</td><td>1</td><td/></row>
 		<row><td>icsmanager.dll</td><td>icsmanager.dll</td><td>icsmanager.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\icsmanager.dll</td><td>1</td><td/></row>
 		<row><td>materialskin.dll</td><td>MaterialSkin.dll</td><td>MaterialSkin.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\MaterialSkin.dll</td><td>1</td><td/></row>
 		<row><td>metroframework.dll</td><td>MetroFramework.dll</td><td>MetroFramework.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\MetroFramework.dll</td><td>1</td><td/></row>
 		<row><td>notification.dll</td><td>Notification.dll</td><td>Notification.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\Notification.dll</td><td>1</td><td/></row>
 		<row><td>varmahotspot.dll</td><td>VarmaHotspot.dll</td><td>VarmaHotspot.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\VarmaHotspot.dll</td><td>1</td><td/></row>
+		<row><td>wyupdate.exe</td><td>wyUpdate.exe</td><td>wyUpdate.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\software and setups\HotspotHandler\Updates\Updates\wyUpdate\wyUpdate.exe</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2047,6 +2060,8 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
+		<row><td>AutomaticUpdater.dll</td><td/><td/><td>_358730A5_571D_4F6E_B109_8CE83ABE5FDA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>CrashReporter.NET.dll</td><td/><td/><td>_0115E621_1586_45AE_9E8D_DD9986BA7CA8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>HotspotClient.exe</td><td/><td/><td>_20F16136_D3A4_417D_B5FC_1D3D31DD80DD_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_D87B921D_7C37_4E2F_9F43_4CED782EE6A1_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>MaterialSkin.dll</td><td/><td/><td>_37DEFC2B_F9D1_4E81_8A79_825348794651_FILTER</td><td/><td/><td/><td/></row>
@@ -2054,6 +2069,7 @@
 		<row><td>Notification.dll</td><td/><td/><td>_194963C6_AC0B_4852_96C9_8FF983859E06_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>VarmaHotspot.dll</td><td/><td/><td>_5C1D36C7_0C9E_4A83_B28A_4E4019EA9839_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>icsmanager.dll</td><td/><td/><td>_25A5BFFF_51BE_4C03_A3FA_86D10B4CB265_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>wyUpdate.exe</td><td/><td/><td>_B7CC1DB1_46C2_401E_A6F7_AC48FEB4AB2C_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3752,12 +3768,14 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>2049185583</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>2049185583</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>2049185583</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.VarmaInc..com</td><td>0</td><td/><td>2049219637</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://ashutoshvarma.me/</td><td>0</td><td/><td>312744657</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>Varma Inc.</td><td>0</td><td/><td>2049219637</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Launch HotspotClient.exe</td><td>0</td><td/><td>2049186128</td></row>
-		<row><td>ID_STRING4</td><td>1033</td><td>Contact Me</td><td>0</td><td/><td>2049221169</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>Ashutosh Varma</td><td>0</td><td/><td>312754897</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>mailto:ashutoshvarma@outlook.com</td><td>0</td><td/><td>2049219637</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>https://github.com/ashutoshvarma/HotspotHandler</td><td>0</td><td/><td>2049192529</td></row>
+		<row><td>ID_STRING7</td><td>1033</td><td>For updates and feedback contact me on given email.</td><td>0</td><td/><td>312761073</td></row>
+		<row><td>ID_STRING8</td><td>1033</td><td>HotspotHandler</td><td>0</td><td/><td>312744849</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>2049185583</td></row>
 	</table>
 
@@ -3873,10 +3891,11 @@
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProjectFolder&gt;\ic_settings_black_48dp_2x.ico</td><td>0</td></row>
 		<row><td>HotspotClient.exe1_895DCF1061BF4C05B77D550333D18721.exe</td><td/><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\HotspotClient.exe</td><td>0</td></row>
-		<row><td>HotspotClient.exe_3EFA282DB58E4E5B981BF52CAF615DB2.exe</td><td/><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\HotspotClient.exe</td><td>0</td></row>
+		<row><td>HotspotClient.exe_5D8C5D83FBAD4C49859272668333EE30.exe</td><td/><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\HotspotClient.exe</td><td>0</td></row>
 		<row><td>HotspotClient.exe_CA0157A7522642E5A79B1AE5CB1D4EB1.exe</td><td/><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\HotspotClient.exe</td><td>0</td></row>
 		<row><td>HotspotClient.exe_E53142AED5DE46E483B8CE54BDC924A9.exe</td><td/><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\HotspotClient.exe</td><td>0</td></row>
 		<row><td>HotspotClient.exe_ED6E2F6A0509419F9C149BE53A3B7978.exe</td><td/><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\HotspotClient.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_AFEB96BCD1984CDEBE55CC9CB0427562.exe</td><td/><td>C:\Users\Aniket\Documents\Visual Studio 2013\Projects\HotspotHandler\HotspotClient\bin\Release\HotspotClient.exe</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4009,7 +4028,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{4C248B1A-C7EB-42A3-95EF-42C22EE30BDF}</td></row>
 		<row><td>ISUSSignature</td><td>{F152883A-2049-4F6C-9042-328BA3743062}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewUI,viewProject,viewUpgradePaths,viewUpdateService,viewObjects,viewVRoots,viewIniFiles,viewFileExtensions,viewTextMessages,viewSystemSearch,viewCustomActions,viewRelease,viewAppFiles</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewUI,viewProject,viewUpgradePaths,viewUpdateService,viewObjects,viewVRoots,viewIniFiles,viewFileExtensions,viewTextMessages,viewSystemSearch,viewCustomActions,viewRelease,viewAppFiles,viewShortcuts,viewServices</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4316,6 +4335,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L0">Value</col>
 		<col def="S255">ISComments</col>
 		<row><td>ALLUSERS</td><td>1</td><td/></row>
+		<row><td>ARPCOMMENTS</td><td>##ID_STRING7##</td><td/></row>
 		<row><td>ARPCONTACT</td><td>##ID_STRING4##</td><td/></row>
 		<row><td>ARPHELPLINK</td><td>##ID_STRING5##</td><td/></row>
 		<row><td>ARPINSTALLLOCATION</td><td/><td/></row>
@@ -4555,7 +4575,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>HotspotClient.exe</td><td>hotspothandler</td><td>##IDS_SHORTCUT_DISPLAY_NAME5##</td><td>HotspotClient.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>HotspotClient.exe_3EFA282DB58E4E5B981BF52CAF615DB2.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>HotspotClient.exe</td><td>hotspothandler</td><td>##IDS_SHORTCUT_DISPLAY_NAME5##</td><td>HotspotClient.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>HotspotClient.exe_5D8C5D83FBAD4C49859272668333EE30.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut1</td><td>DesktopFolder</td><td>##ID_STRING8##</td><td>HotspotClient.exe</td><td>[INSTALLDIR]HotspotClient.exe</td><td/><td/><td/><td>NewShortcut1_AFEB96BCD1984CDEBE55CC9CB0427562.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
@@ -4582,7 +4603,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ArialBlueStrike10</td><td>Arial</td><td>10</td><td>16711680</td><td>8</td></row>
 		<row><td>CourierNew8</td><td>Courier New</td><td>8</td><td/><td/></row>
 		<row><td>CourierNew9</td><td>Courier New</td><td>9</td><td/><td/></row>
-		<row><td>ExpressDefault</td><td>Tahoma</td><td>8</td><td/><td/></row>
+		<row><td>ExpressDefault</td><td>Raleway</td><td>8</td><td>0</td><td>0</td></row>
 		<row><td>MSGothic9</td><td>MS Gothic</td><td>9</td><td/><td/></row>
 		<row><td>MSSGreySerif8</td><td>MS Sans Serif</td><td>8</td><td>8421504</td><td/></row>
 		<row><td>MSSWhiteSerif8</td><td>Tahoma</td><td>8</td><td>16777215</td><td/></row>
