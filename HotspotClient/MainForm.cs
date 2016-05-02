@@ -141,6 +141,11 @@ namespace HotspotClient
             txtPass.Text = Settings.Password;
             txtSSID.Text = Settings.SSID;
 
+            btnUpdate.Font = skinManager.ROBOTO_MEDIUM_10;
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.BackColor = skinManager.ColorScheme.PrimaryColor;
+            btnUpdate.FlatAppearance.MouseOverBackColor = skinManager.ColorScheme.DarkPrimaryColor;
+            btnUpdate.FlatAppearance.MouseDownBackColor = skinManager.ColorScheme.PrimaryColor;
 
         }
 
@@ -241,10 +246,6 @@ namespace HotspotClient
             timer1.Start();
 
 
-
-
-
-
         }
 
         private void MainForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
@@ -330,6 +331,8 @@ namespace HotspotClient
                     comboNetwork.Style = MetroFramework.MetroColorStyle.Blue;
                     comboColorStyle.Style = MetroFramework.MetroColorStyle.Blue;
                     comboTheme.Style = MetroFramework.MetroColorStyle.Blue;
+
+
                     break;
 
                 case 1:
@@ -373,6 +376,10 @@ namespace HotspotClient
             }
 
 
+            btnUpdate.BackColor = skinManager.ColorScheme.PrimaryColor;
+            btnUpdate.FlatAppearance.MouseOverBackColor = skinManager.ColorScheme.DarkPrimaryColor;
+            btnUpdate.FlatAppearance.MouseDownBackColor = skinManager.ColorScheme.PrimaryColor;
+
         }
 
         private void comboTheme_SelectedIndexChanged(object sender, EventArgs e)
@@ -403,7 +410,7 @@ namespace HotspotClient
             {
                 groupControl.Focus();                //  just to avoid selecting text of txtSSID
                 switch (btnHotspot.Text)
-                { 
+                {
                     case "Stop":
                         btnHotspot.Enabled = false;
                         workerStop.RunWorkerAsync();
@@ -471,6 +478,97 @@ namespace HotspotClient
         }
 
 
+
+
+        private void materialLabel3_Click(object sender, EventArgs e)
+        {
+            if (!workerDevices.IsBusy)
+            {
+                ListViewItem[] lists = new ListViewItem[_listview.Items.Count];
+                _listview.Items.CopyTo(lists, 0);
+                workerDevices.RunWorkerAsync("ALL");
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            ListViewItem[] lists = new ListViewItem[_listview.Items.Count];
+            _listview.Items.CopyTo(lists, 0);
+
+
+            if (!workerDevices.IsBusy)
+            {
+                workerDevices.RunWorkerAsync("ALL");
+            }
+            if (!workerUI.IsBusy)
+            {
+                workerUI.RunWorkerAsync();
+            }
+        }
+
+
+
+        private void materialLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabAbout_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel l = (LinkLabel)sender;
+            System.Diagnostics.Process.Start(l.Text);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
+
+        private void comboNetwork_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                NetworkInterface best = NativeHelper.GetBestNetworkInterface("www.google.com");
+                if (best.Name == comboNetwork.SelectedItem.ToString() || best.Description == comboNetwork.SelectedItem.ToString())
+                {
+                    NotificationManager.Show(ref parent, comboNetwork.SelectedItem.ToString() + " is connected to internet", skinManager.ColorScheme.DarkPrimaryColor, 2000);
+
+                }
+                else
+                {
+                    NotificationManager.Show(ref parent, comboNetwork.SelectedItem.ToString() + " is NOT connected to internet", skinManager.ColorScheme.DarkPrimaryColor, 2000);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            TabControl1.SelectedIndex = 3;
+            automaticUpdater1.ForceCheckForUpdate();
+
+            
+        }
+
+
+        private void automaticUpdater1_UpdateAvailable(object sender, EventArgs e)
+        {
+            InfoBox.ShowDialogStatic(new Size(350, 160), "Update Available", "Version " + automaticUpdater1.Version + " is available." + Environment.NewLine + "Please Install the latest version now.");
+
+        }
 
         #endregion
 
@@ -1024,80 +1122,11 @@ namespace HotspotClient
 
         #endregion
 
-        private void materialLabel3_Click(object sender, EventArgs e)
-        {
-            if (!workerDevices.IsBusy)
-            {
-                ListViewItem[] lists = new ListViewItem[_listview.Items.Count];
-                _listview.Items.CopyTo(lists, 0);
-                workerDevices.RunWorkerAsync("ALL");
-            }
-        }
+       
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
+       
 
-            ListViewItem[] lists = new ListViewItem[_listview.Items.Count];
-            _listview.Items.CopyTo(lists, 0);
-
-
-            if (!workerDevices.IsBusy)
-            {
-                workerDevices.RunWorkerAsync("ALL");
-            }
-            if (!workerUI.IsBusy)
-            {
-                workerUI.RunWorkerAsync();
-            }
-        }
-
-
-
-        private void materialLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabAbout_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            LinkLabel l = (LinkLabel)sender;
-            System.Diagnostics.Process.Start(l.Text);
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
-        }
-
-        private void comboNetwork_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                NetworkInterface best = NativeHelper.GetBestNetworkInterface("www.google.com");
-                if (best.Name == comboNetwork.SelectedItem.ToString() || best.Description == comboNetwork.SelectedItem.ToString())
-                {
-                    NotificationManager.Show(ref parent, comboNetwork.SelectedItem.ToString() + " is connected to internet", skinManager.ColorScheme.DarkPrimaryColor, 2000);
-
-                }
-                else
-                {
-                    NotificationManager.Show(ref parent, comboNetwork.SelectedItem.ToString() + " is NOT connected to internet", skinManager.ColorScheme.DarkPrimaryColor, 2000);
-                }
-            }
-            catch
-            {
-
-            }
-        }
+        
 
 
     }

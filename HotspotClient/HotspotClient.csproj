@@ -40,6 +40,9 @@
     <ApplicationIcon>1460729544_ic_signal_wifi_2_bar_48px.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutomaticUpdater">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\wyBuild\AutomaticUpdater\AutomaticUpdater.dll</HintPath>
+    </Reference>
     <Reference Include="icsmanager">
       <HintPath>..\Hotspot\bin\Release\icsmanager.dll</HintPath>
     </Reference>
@@ -59,6 +62,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

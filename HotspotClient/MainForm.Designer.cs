@@ -43,25 +43,32 @@
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2, bar, signal, wifi icon", new System.Windows.Forms.TreeNode[] {
             treeNode7});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tabDetails = new System.Windows.Forms.TabPage();
-            this.btnRefreshDetails = new MaterialSkin.Controls.MaterialFlatButton();
-            this.property1 = new System.Windows.Forms.PropertyGrid();
-            this.tabControl = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this._listview = new MaterialSkin.Controls.MaterialListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.groupControl = new System.Windows.Forms.GroupBox();
-            this.panelControl = new System.Windows.Forms.Panel();
-            this.txtPass = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtSSID = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnHotspot = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.TabControl1 = new MaterialSkin.Controls.MaterialTabControl();
+            this.processbar = new MaterialSkin.Controls.MaterialProgressBar();
+            this.workerHostspotSupport = new System.ComponentModel.BackgroundWorker();
+            this.workerICSChange = new System.ComponentModel.BackgroundWorker();
+            this.workerStart = new System.ComponentModel.BackgroundWorker();
+            this.workerStop = new System.ComponentModel.BackgroundWorker();
+            this.workerRefresh = new System.ComponentModel.BackgroundWorker();
+            this.workerUI = new System.ComponentModel.BackgroundWorker();
+            this.workerDevices = new System.ComponentModel.BackgroundWorker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tabAbout = new System.Windows.Forms.TabPage();
+            this.automaticUpdater1 = new wyDay.Controls.AutomaticUpdater();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -83,39 +90,31 @@
             this.checkExit = new MaterialSkin.Controls.MaterialCheckBox();
             this.checkStartUp2 = new MaterialSkin.Controls.MaterialCheckBox();
             this.checkStartUp1 = new MaterialSkin.Controls.MaterialCheckBox();
-            this.tabAbout = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabDetails = new System.Windows.Forms.TabPage();
+            this.btnRefreshDetails = new MaterialSkin.Controls.MaterialFlatButton();
+            this.property1 = new System.Windows.Forms.PropertyGrid();
+            this.tabControl = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this._listview = new MaterialSkin.Controls.MaterialListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.groupControl = new System.Windows.Forms.GroupBox();
+            this.panelControl = new System.Windows.Forms.Panel();
+            this.txtPass = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtSSID = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnHotspot = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.TabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.processbar = new MaterialSkin.Controls.MaterialProgressBar();
-            this.workerHostspotSupport = new System.ComponentModel.BackgroundWorker();
-            this.workerICSChange = new System.ComponentModel.BackgroundWorker();
-            this.workerStart = new System.ComponentModel.BackgroundWorker();
-            this.workerStop = new System.ComponentModel.BackgroundWorker();
-            this.workerRefresh = new System.ComponentModel.BackgroundWorker();
-            this.workerUI = new System.ComponentModel.BackgroundWorker();
-            this.workerDevices = new System.ComponentModel.BackgroundWorker();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tabDetails.SuspendLayout();
-            this.tabControl.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.groupControl.SuspendLayout();
-            this.panelControl.SuspendLayout();
-            this.TabControl1.SuspendLayout();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.tabAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.automaticUpdater1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.tabSettings.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -124,249 +123,293 @@
             this.groupICS.SuspendLayout();
             this.groupApperance.SuspendLayout();
             this.groupStartUp.SuspendLayout();
-            this.tabAbout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.tabDetails.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupControl.SuspendLayout();
+            this.panelControl.SuspendLayout();
+            this.TabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabDetails
+            // processbar
             // 
-            this.tabDetails.Controls.Add(this.btnRefreshDetails);
-            this.tabDetails.Controls.Add(this.property1);
-            this.tabDetails.Location = new System.Drawing.Point(4, 22);
-            this.tabDetails.Name = "tabDetails";
-            this.tabDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetails.Size = new System.Drawing.Size(458, 434);
-            this.tabDetails.TabIndex = 3;
-            this.tabDetails.Text = "Hotspot Details";
-            this.tabDetails.UseVisualStyleBackColor = true;
-            this.tabDetails.Enter += new System.EventHandler(this.tabDetails_Enter);
+            this.processbar.Depth = 0;
+            this.processbar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.processbar.Location = new System.Drawing.Point(0, 578);
+            this.processbar.MarqueeAnimationSpeed = 1000000;
+            this.processbar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.processbar.Name = "processbar";
+            this.processbar.Size = new System.Drawing.Size(465, 5);
+            this.processbar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.processbar.TabIndex = 3;
+            this.processbar.Value = 100;
             // 
-            // btnRefreshDetails
+            // workerHostspotSupport
             // 
-            this.btnRefreshDetails.AutoSize = true;
-            this.btnRefreshDetails.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRefreshDetails.Depth = 0;
-            this.btnRefreshDetails.Location = new System.Drawing.Point(193, 6);
-            this.btnRefreshDetails.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnRefreshDetails.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRefreshDetails.Name = "btnRefreshDetails";
-            this.btnRefreshDetails.Primary = true;
-            this.btnRefreshDetails.Size = new System.Drawing.Size(70, 36);
-            this.btnRefreshDetails.TabIndex = 1;
-            this.btnRefreshDetails.Text = "Refresh";
-            this.btnRefreshDetails.UseVisualStyleBackColor = true;
-            this.btnRefreshDetails.Click += new System.EventHandler(this.btnRefreshDetails_Click);
+            this.workerHostspotSupport.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerHostspotSupport_DoWork);
+            this.workerHostspotSupport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerHostspotSupport_RunWorkerCompleted);
             // 
-            // property1
+            // workerICSChange
             // 
-            this.property1.AccessibleRole = System.Windows.Forms.AccessibleRole.PropertyPage;
-            this.property1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.property1.DisabledItemForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.property1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.property1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.property1.Location = new System.Drawing.Point(3, 22);
-            this.property1.Name = "property1";
-            this.property1.Size = new System.Drawing.Size(452, 409);
-            this.property1.TabIndex = 0;
+            this.workerICSChange.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerICSChange_DoWork);
+            this.workerICSChange.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerICSChange_RunWorkerCompleted);
             // 
-            // tabControl
+            // workerStart
             // 
-            this.tabControl.Controls.Add(this.groupBox2);
-            this.tabControl.Controls.Add(this.groupControl);
-            this.tabControl.Location = new System.Drawing.Point(4, 22);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.Padding = new System.Windows.Forms.Padding(3);
-            this.tabControl.Size = new System.Drawing.Size(458, 434);
-            this.tabControl.TabIndex = 0;
-            this.tabControl.Text = "Controls";
-            this.tabControl.UseVisualStyleBackColor = true;
+            this.workerStart.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerStart_DoWork);
+            this.workerStart.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerStart_RunWorkerCompleted);
             // 
-            // groupBox2
+            // workerStop
             // 
-            this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.Controls.Add(this.materialLabel3);
-            this.groupBox2.Location = new System.Drawing.Point(0, 143);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(465, 305);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
+            this.workerStop.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerStop_DoWork);
+            this.workerStop.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerStop_RunWorkerCompleted);
             // 
-            // panel2
+            // workerRefresh
             // 
-            this.panel2.Controls.Add(this._listview);
-            this.panel2.Location = new System.Drawing.Point(3, 65);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(455, 234);
-            this.panel2.TabIndex = 4;
+            this.workerRefresh.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerRefresh_DoWork);
+            this.workerRefresh.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerRefresh_RunWorkerCompleted);
             // 
-            // _listview
+            // workerUI
             // 
-            this._listview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this._listview.Depth = 0;
-            this._listview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._listview.Font = new System.Drawing.Font("Roboto", 24F);
-            this._listview.FullRowSelect = true;
-            this._listview.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this._listview.Location = new System.Drawing.Point(0, 0);
-            this._listview.MouseLocation = new System.Drawing.Point(-1, -1);
-            this._listview.MouseState = MaterialSkin.MouseState.OUT;
-            this._listview.Name = "_listview";
-            this._listview.OwnerDraw = true;
-            this._listview.Size = new System.Drawing.Size(455, 234);
-            this._listview.TabIndex = 0;
-            this._listview.UseCompatibleStateImageBehavior = false;
-            this._listview.View = System.Windows.Forms.View.Details;
+            this.workerUI.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerUI_DoWork);
+            this.workerUI.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerUI_RunWorkerCompleted);
             // 
-            // columnHeader1
+            // workerDevices
             // 
-            this.columnHeader1.Text = "Device Name";
-            this.columnHeader1.Width = 150;
+            this.workerDevices.WorkerSupportsCancellation = true;
+            this.workerDevices.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerDevices_DoWork);
+            this.workerDevices.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerDevices_RunWorkerCompleted);
             // 
-            // columnHeader2
+            // timer1
             // 
-            this.columnHeader2.Text = "Mac Address";
-            this.columnHeader2.Width = 150;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // columnHeader3
+            // tabAbout
             // 
-            this.columnHeader3.Text = "Company";
-            this.columnHeader3.Width = 150;
+            this.tabAbout.AutoScroll = true;
+            this.tabAbout.Controls.Add(this.automaticUpdater1);
+            this.tabAbout.Controls.Add(this.pictureBox1);
+            this.tabAbout.Controls.Add(this.linkLabel3);
+            this.tabAbout.Controls.Add(this.label9);
+            this.tabAbout.Controls.Add(this.treeView1);
+            this.tabAbout.Controls.Add(this.label8);
+            this.tabAbout.Controls.Add(this.label5);
+            this.tabAbout.Controls.Add(this.groupBox1);
+            this.tabAbout.Controls.Add(this.label4);
+            this.tabAbout.Controls.Add(this.label3);
+            this.tabAbout.Controls.Add(this.label2);
+            this.tabAbout.Controls.Add(this.label1);
+            this.tabAbout.Location = new System.Drawing.Point(4, 22);
+            this.tabAbout.Name = "tabAbout";
+            this.tabAbout.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAbout.Size = new System.Drawing.Size(458, 434);
+            this.tabAbout.TabIndex = 5;
+            this.tabAbout.Text = "About";
+            this.tabAbout.UseVisualStyleBackColor = true;
+            this.tabAbout.Click += new System.EventHandler(this.tabAbout_Click);
             // 
-            // materialLabel3
+            // automaticUpdater1
             // 
-            this.materialLabel3.AutoEllipsis = true;
-            this.materialLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(123, 12);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(201, 24);
-            this.materialLabel3.TabIndex = 3;
-            this.materialLabel3.Text = "Connected Devices";
-            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.materialLabel3.Click += new System.EventHandler(this.materialLabel3_Click);
+            this.automaticUpdater1.BackColor = System.Drawing.Color.Transparent;
+            this.automaticUpdater1.ContainerForm = this;
+            this.automaticUpdater1.DaysBetweenChecks = 7;
+            this.automaticUpdater1.Font = new System.Drawing.Font("Raleway", 14.25F);
+            this.automaticUpdater1.GUID = "ce92669c-1ff0-4392-a3e4-429ea6a42eac";
+            this.automaticUpdater1.Location = new System.Drawing.Point(6, 423);
+            this.automaticUpdater1.Name = "automaticUpdater1";
+            this.automaticUpdater1.Size = new System.Drawing.Size(16, 16);
+            this.automaticUpdater1.TabIndex = 11;
+            this.automaticUpdater1.WaitBeforeCheckSecs = 5;
+            this.automaticUpdater1.wyUpdateCommandline = null;
+            this.automaticUpdater1.UpdateAvailable += new System.EventHandler(this.automaticUpdater1_UpdateAvailable);
             // 
-            // groupControl
+            // pictureBox1
             // 
-            this.groupControl.Controls.Add(this.panelControl);
-            this.groupControl.Controls.Add(this.btnHotspot);
-            this.groupControl.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl.Location = new System.Drawing.Point(0, -7);
-            this.groupControl.Name = "groupControl";
-            this.groupControl.Size = new System.Drawing.Size(465, 151);
-            this.groupControl.TabIndex = 0;
-            this.groupControl.TabStop = false;
+            this.pictureBox1.Image = global::HotspotClient.Properties.Resources._1460729544_ic_signal_wifi_2_bar_48px;
+            this.pictureBox1.Location = new System.Drawing.Point(106, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
-            // panelControl
+            // linkLabel3
             // 
-            this.panelControl.AutoSize = true;
-            this.panelControl.BackColor = System.Drawing.Color.White;
-            this.panelControl.Controls.Add(this.txtPass);
-            this.panelControl.Controls.Add(this.txtSSID);
-            this.panelControl.Controls.Add(this.materialLabel2);
-            this.panelControl.Controls.Add(this.materialLabel1);
-            this.panelControl.Location = new System.Drawing.Point(8, 13);
-            this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(441, 83);
-            this.panelControl.TabIndex = 2;
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.Location = new System.Drawing.Point(39, 162);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(329, 15);
+            this.linkLabel3.TabIndex = 9;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "https://github.com/ashutoshvarma/hotspothandler/";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
-            // txtPass
+            // label9
             // 
-            this.txtPass.Depth = 0;
-            this.txtPass.Hint = "Password for Hotspot";
-            this.txtPass.Location = new System.Drawing.Point(147, 57);
-            this.txtPass.MaxLength = 32767;
-            this.txtPass.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtPass.Name = "txtPass";
-            this.txtPass.PasswordChar = '\0';
-            this.txtPass.SelectedText = "";
-            this.txtPass.SelectionLength = 0;
-            this.txtPass.SelectionStart = 0;
-            this.txtPass.Size = new System.Drawing.Size(256, 23);
-            this.txtPass.TabIndex = 3;
-            this.txtPass.TabStop = false;
-            this.txtPass.UseSystemPasswordChar = true;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Raleway", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(13, 140);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(179, 22);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Project Webpage :-";
             // 
-            // txtSSID
+            // treeView1
             // 
-            this.txtSSID.Depth = 0;
-            this.txtSSID.Hint = "Name Of Hotspot";
-            this.txtSSID.Location = new System.Drawing.Point(147, 16);
-            this.txtSSID.MaxLength = 32767;
-            this.txtSSID.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtSSID.Name = "txtSSID";
-            this.txtSSID.PasswordChar = '\0';
-            this.txtSSID.SelectedText = "";
-            this.txtSSID.SelectionLength = 0;
-            this.txtSSID.SelectionStart = 0;
-            this.txtSSID.Size = new System.Drawing.Size(256, 23);
-            this.txtSSID.TabIndex = 2;
-            this.txtSSID.TabStop = false;
-            this.txtSSID.UseSystemPasswordChar = false;
+            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeView1.Font = new System.Drawing.Font("Raleway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Indent = 19;
+            this.treeView1.Location = new System.Drawing.Point(41, 329);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "Node6";
+            treeNode1.Text = "Github :- https://github.com/IgnaceMaes/MaterialSkin/";
+            treeNode2.Name = "Node5";
+            treeNode2.NodeFont = new System.Drawing.Font("Raleway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            treeNode2.Text = "MaterialSkin by IgnaceMaes";
+            treeNode3.Name = "Node8";
+            treeNode3.Text = "Github :- https://github.com/thielj/MetroFramework";
+            treeNode4.Name = "Node7";
+            treeNode4.NodeFont = new System.Drawing.Font("Raleway", 8.999999F);
+            treeNode4.Text = "MetroFramework by thielj";
+            treeNode5.Name = "Node10";
+            treeNode5.Text = "CodeProject  :- http://www.codeproject.com/Articles/442983/Android-Style-Toast-No" +
+    "tification-for-NET";
+            treeNode6.Name = "Node9";
+            treeNode6.NodeFont = new System.Drawing.Font("Raleway", 8.999999F);
+            treeNode6.Text = "Android-Style (Toast) Notification for .NET by John Espiritu";
+            treeNode7.Name = "Node12";
+            treeNode7.Text = "License : - http://creativecommons.org/licenses/by-sa/3.0/";
+            treeNode8.Name = "Node11";
+            treeNode8.NodeFont = new System.Drawing.Font("Raleway", 8.999999F);
+            treeNode8.Text = "2, bar, signal, wifi icon";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode4,
+            treeNode6,
+            treeNode8});
+            this.treeView1.Size = new System.Drawing.Size(396, 85);
+            this.treeView1.TabIndex = 7;
             // 
-            // materialLabel2
+            // label8
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(27, 57);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(75, 19);
-            this.materialLabel2.TabIndex = 1;
-            this.materialLabel2.Text = "Password";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Raleway", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(13, 304);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(223, 22);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Open Source Licenses :-";
             // 
-            // materialLabel1
+            // label5
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(61, 19);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(41, 19);
-            this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "SSID";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Quicksand", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(39, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 17);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Ashutosh Varma";
             // 
-            // btnHotspot
+            // groupBox1
             // 
-            this.btnHotspot.Depth = 0;
-            this.btnHotspot.Location = new System.Drawing.Point(155, 102);
-            this.btnHotspot.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnHotspot.Name = "btnHotspot";
-            this.btnHotspot.Primary = true;
-            this.btnHotspot.Size = new System.Drawing.Size(123, 36);
-            this.btnHotspot.TabIndex = 1;
-            this.btnHotspot.Text = "Start";
-            this.btnHotspot.UseVisualStyleBackColor = true;
-            this.btnHotspot.Click += new System.EventHandler(this.btnHotspot_Click);
+            this.groupBox1.Controls.Add(this.linkLabel2);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.linkLabel1);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Location = new System.Drawing.Point(41, 231);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Size = new System.Drawing.Size(375, 61);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
             // 
-            // TabControl1
+            // linkLabel2
             // 
-            this.TabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabControl1.Controls.Add(this.tabControl);
-            this.TabControl1.Controls.Add(this.tabDetails);
-            this.TabControl1.Controls.Add(this.tabSettings);
-            this.TabControl1.Controls.Add(this.tabAbout);
-            this.TabControl1.Depth = 0;
-            this.TabControl1.Location = new System.Drawing.Point(0, 122);
-            this.TabControl1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TabControl1.Name = "TabControl1";
-            this.TabControl1.SelectedIndex = 0;
-            this.TabControl1.Size = new System.Drawing.Size(466, 460);
-            this.TabControl1.TabIndex = 2;
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(98, 37);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(237, 13);
+            this.linkLabel2.TabIndex = 9;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "https://plus.google.com/+AshutoshVarmaOfficial";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Raleway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 37);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 14);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Google Plus  :- ";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(100, 17);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(177, 13);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "https://github.com/ashutoshvarma/";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Raleway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 14);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Github Profile : -";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Raleway", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 22);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Contributors : -";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Quicksand", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(14, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(423, 45);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "This a simple project which uses netsh commands to setup and \r\ncontrol Hotspot(ho" +
+    "stednetwork) on computer having supported\r\n network adapter card.";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(178, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Version - 1.0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(137, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(191, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "HotspotHandler";
             // 
             // tabSettings
             // 
@@ -670,214 +713,244 @@
             this.checkStartUp1.Text = "Automatically Start on Computer Start Up";
             this.checkStartUp1.UseVisualStyleBackColor = true;
             // 
-            // tabAbout
+            // tabDetails
             // 
-            this.tabAbout.AutoScroll = true;
-            this.tabAbout.Controls.Add(this.pictureBox1);
-            this.tabAbout.Controls.Add(this.linkLabel3);
-            this.tabAbout.Controls.Add(this.label9);
-            this.tabAbout.Controls.Add(this.treeView1);
-            this.tabAbout.Controls.Add(this.label8);
-            this.tabAbout.Controls.Add(this.label5);
-            this.tabAbout.Controls.Add(this.groupBox1);
-            this.tabAbout.Controls.Add(this.label4);
-            this.tabAbout.Controls.Add(this.label3);
-            this.tabAbout.Controls.Add(this.label2);
-            this.tabAbout.Controls.Add(this.label1);
-            this.tabAbout.Location = new System.Drawing.Point(4, 22);
-            this.tabAbout.Name = "tabAbout";
-            this.tabAbout.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAbout.Size = new System.Drawing.Size(458, 434);
-            this.tabAbout.TabIndex = 5;
-            this.tabAbout.Text = "About";
-            this.tabAbout.UseVisualStyleBackColor = true;
-            this.tabAbout.Click += new System.EventHandler(this.tabAbout_Click);
+            this.tabDetails.Controls.Add(this.btnRefreshDetails);
+            this.tabDetails.Controls.Add(this.property1);
+            this.tabDetails.Location = new System.Drawing.Point(4, 22);
+            this.tabDetails.Name = "tabDetails";
+            this.tabDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDetails.Size = new System.Drawing.Size(458, 434);
+            this.tabDetails.TabIndex = 3;
+            this.tabDetails.Text = "Hotspot Details";
+            this.tabDetails.UseVisualStyleBackColor = true;
+            this.tabDetails.Enter += new System.EventHandler(this.tabDetails_Enter);
             // 
-            // pictureBox1
+            // btnRefreshDetails
             // 
-            this.pictureBox1.Image = global::HotspotClient.Properties.Resources._1460729544_ic_signal_wifi_2_bar_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(106, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.btnRefreshDetails.AutoSize = true;
+            this.btnRefreshDetails.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRefreshDetails.Depth = 0;
+            this.btnRefreshDetails.Location = new System.Drawing.Point(193, 6);
+            this.btnRefreshDetails.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRefreshDetails.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRefreshDetails.Name = "btnRefreshDetails";
+            this.btnRefreshDetails.Primary = true;
+            this.btnRefreshDetails.Size = new System.Drawing.Size(70, 36);
+            this.btnRefreshDetails.TabIndex = 1;
+            this.btnRefreshDetails.Text = "Refresh";
+            this.btnRefreshDetails.UseVisualStyleBackColor = true;
+            this.btnRefreshDetails.Click += new System.EventHandler(this.btnRefreshDetails_Click);
             // 
-            // linkLabel3
+            // property1
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.Location = new System.Drawing.Point(39, 162);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(327, 15);
-            this.linkLabel3.TabIndex = 9;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "http://ashutoshvarma.me/projects/hotspothandler/";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            this.property1.AccessibleRole = System.Windows.Forms.AccessibleRole.PropertyPage;
+            this.property1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.property1.DisabledItemForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.property1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.property1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.property1.Location = new System.Drawing.Point(3, 22);
+            this.property1.Name = "property1";
+            this.property1.Size = new System.Drawing.Size(452, 409);
+            this.property1.TabIndex = 0;
             // 
-            // label9
+            // tabControl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Raleway", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 140);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(179, 22);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Project Webpage :-";
+            this.tabControl.Controls.Add(this.groupBox2);
+            this.tabControl.Controls.Add(this.groupControl);
+            this.tabControl.Location = new System.Drawing.Point(4, 22);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.Padding = new System.Windows.Forms.Padding(3);
+            this.tabControl.Size = new System.Drawing.Size(458, 434);
+            this.tabControl.TabIndex = 0;
+            this.tabControl.Text = "Controls";
+            this.tabControl.UseVisualStyleBackColor = true;
             // 
-            // treeView1
+            // groupBox2
             // 
-            this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView1.Font = new System.Drawing.Font("Raleway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView1.Indent = 19;
-            this.treeView1.Location = new System.Drawing.Point(41, 363);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node6";
-            treeNode1.Text = "Github :- https://github.com/IgnaceMaes/MaterialSkin/";
-            treeNode2.Name = "Node5";
-            treeNode2.NodeFont = new System.Drawing.Font("Raleway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeNode2.Text = "MaterialSkin by IgnaceMaes";
-            treeNode3.Name = "Node8";
-            treeNode3.Text = "Github :- https://github.com/thielj/MetroFramework";
-            treeNode4.Name = "Node7";
-            treeNode4.NodeFont = new System.Drawing.Font("Raleway", 8.999999F);
-            treeNode4.Text = "MetroFramework by thielj";
-            treeNode5.Name = "Node10";
-            treeNode5.Text = "CodeProject  :- http://www.codeproject.com/Articles/442983/Android-Style-Toast-No" +
-    "tification-for-NET";
-            treeNode6.Name = "Node9";
-            treeNode6.NodeFont = new System.Drawing.Font("Raleway", 8.999999F);
-            treeNode6.Text = "Android-Style (Toast) Notification for .NET by John Espiritu";
-            treeNode7.Name = "Node12";
-            treeNode7.Text = "License : - http://creativecommons.org/licenses/by-sa/3.0/";
-            treeNode8.Name = "Node11";
-            treeNode8.NodeFont = new System.Drawing.Font("Raleway", 8.999999F);
-            treeNode8.Text = "2, bar, signal, wifi icon";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4,
-            treeNode6,
-            treeNode8});
-            this.treeView1.Size = new System.Drawing.Size(396, 89);
-            this.treeView1.TabIndex = 7;
+            this.groupBox2.Controls.Add(this.panel2);
+            this.groupBox2.Controls.Add(this.materialLabel3);
+            this.groupBox2.Location = new System.Drawing.Point(0, 143);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(465, 305);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
             // 
-            // label8
+            // panel2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Raleway", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 338);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(223, 22);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Open Source Licenses :-";
+            this.panel2.Controls.Add(this._listview);
+            this.panel2.Location = new System.Drawing.Point(3, 65);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(455, 234);
+            this.panel2.TabIndex = 4;
             // 
-            // label5
+            // _listview
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Quicksand", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(39, 236);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Ashutosh Varma";
+            this._listview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this._listview.Depth = 0;
+            this._listview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._listview.Font = new System.Drawing.Font("Roboto", 24F);
+            this._listview.FullRowSelect = true;
+            this._listview.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this._listview.Location = new System.Drawing.Point(0, 0);
+            this._listview.MouseLocation = new System.Drawing.Point(-1, -1);
+            this._listview.MouseState = MaterialSkin.MouseState.OUT;
+            this._listview.Name = "_listview";
+            this._listview.OwnerDraw = true;
+            this._listview.Size = new System.Drawing.Size(455, 234);
+            this._listview.TabIndex = 0;
+            this._listview.UseCompatibleStateImageBehavior = false;
+            this._listview.View = System.Windows.Forms.View.Details;
             // 
-            // groupBox1
+            // columnHeader1
             // 
-            this.groupBox1.Controls.Add(this.linkLabel2);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.linkLabel1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(41, 243);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(375, 61);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
+            this.columnHeader1.Text = "Device Name";
+            this.columnHeader1.Width = 150;
             // 
-            // linkLabel2
+            // columnHeader2
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(98, 37);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(237, 13);
-            this.linkLabel2.TabIndex = 9;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "https://plus.google.com/+AshutoshVarmaOfficial";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.columnHeader2.Text = "Mac Address";
+            this.columnHeader2.Width = 150;
             // 
-            // label7
+            // columnHeader3
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Raleway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 37);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 14);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Google Plus  :- ";
+            this.columnHeader3.Text = "Company";
+            this.columnHeader3.Width = 150;
             // 
-            // linkLabel1
+            // materialLabel3
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(100, 17);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(177, 13);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://github.com/ashutoshvarma/";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.materialLabel3.AutoEllipsis = true;
+            this.materialLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(123, 12);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(201, 24);
+            this.materialLabel3.TabIndex = 3;
+            this.materialLabel3.Text = "Connected Devices";
+            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.materialLabel3.Click += new System.EventHandler(this.materialLabel3_Click);
             // 
-            // label6
+            // groupControl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Raleway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 14);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Github Profile : -";
+            this.groupControl.Controls.Add(this.panelControl);
+            this.groupControl.Controls.Add(this.btnHotspot);
+            this.groupControl.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl.Location = new System.Drawing.Point(0, -7);
+            this.groupControl.Name = "groupControl";
+            this.groupControl.Size = new System.Drawing.Size(465, 151);
+            this.groupControl.TabIndex = 0;
+            this.groupControl.TabStop = false;
             // 
-            // label4
+            // panelControl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Raleway", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 209);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 22);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Contributors : -";
+            this.panelControl.AutoSize = true;
+            this.panelControl.BackColor = System.Drawing.Color.White;
+            this.panelControl.Controls.Add(this.txtPass);
+            this.panelControl.Controls.Add(this.txtSSID);
+            this.panelControl.Controls.Add(this.materialLabel2);
+            this.panelControl.Controls.Add(this.materialLabel1);
+            this.panelControl.Location = new System.Drawing.Point(8, 13);
+            this.panelControl.Name = "panelControl";
+            this.panelControl.Size = new System.Drawing.Size(441, 83);
+            this.panelControl.TabIndex = 2;
             // 
-            // label3
+            // txtPass
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Quicksand", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(423, 45);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "This a simple project which uses netsh commands to setup and \r\ncontrol Hotspot(ho" +
-    "stednetwork) on computer having supported\r\n network adapter card.";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtPass.Depth = 0;
+            this.txtPass.Hint = "Password for Hotspot";
+            this.txtPass.Location = new System.Drawing.Point(147, 57);
+            this.txtPass.MaxLength = 32767;
+            this.txtPass.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '\0';
+            this.txtPass.SelectedText = "";
+            this.txtPass.SelectionLength = 0;
+            this.txtPass.SelectionStart = 0;
+            this.txtPass.Size = new System.Drawing.Size(256, 23);
+            this.txtPass.TabIndex = 3;
+            this.txtPass.TabStop = false;
+            this.txtPass.UseSystemPasswordChar = true;
             // 
-            // label2
+            // txtSSID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(178, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Version - 1.0.1";
+            this.txtSSID.Depth = 0;
+            this.txtSSID.Hint = "Name Of Hotspot";
+            this.txtSSID.Location = new System.Drawing.Point(147, 16);
+            this.txtSSID.MaxLength = 32767;
+            this.txtSSID.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtSSID.Name = "txtSSID";
+            this.txtSSID.PasswordChar = '\0';
+            this.txtSSID.SelectedText = "";
+            this.txtSSID.SelectionLength = 0;
+            this.txtSSID.SelectionStart = 0;
+            this.txtSSID.Size = new System.Drawing.Size(256, 23);
+            this.txtSSID.TabIndex = 2;
+            this.txtSSID.TabStop = false;
+            this.txtSSID.UseSystemPasswordChar = false;
             // 
-            // label1
+            // materialLabel2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(137, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "HotspotHandler";
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(27, 57);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(75, 19);
+            this.materialLabel2.TabIndex = 1;
+            this.materialLabel2.Text = "Password";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(61, 19);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(41, 19);
+            this.materialLabel1.TabIndex = 0;
+            this.materialLabel1.Text = "SSID";
+            // 
+            // btnHotspot
+            // 
+            this.btnHotspot.Depth = 0;
+            this.btnHotspot.Location = new System.Drawing.Point(155, 102);
+            this.btnHotspot.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHotspot.Name = "btnHotspot";
+            this.btnHotspot.Primary = true;
+            this.btnHotspot.Size = new System.Drawing.Size(123, 36);
+            this.btnHotspot.TabIndex = 1;
+            this.btnHotspot.Text = "Start";
+            this.btnHotspot.UseVisualStyleBackColor = true;
+            this.btnHotspot.Click += new System.EventHandler(this.btnHotspot_Click);
+            // 
+            // TabControl1
+            // 
+            this.TabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TabControl1.Controls.Add(this.tabControl);
+            this.TabControl1.Controls.Add(this.tabDetails);
+            this.TabControl1.Controls.Add(this.tabSettings);
+            this.TabControl1.Controls.Add(this.tabAbout);
+            this.TabControl1.Depth = 0;
+            this.TabControl1.Location = new System.Drawing.Point(0, 122);
+            this.TabControl1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TabControl1.Name = "TabControl1";
+            this.TabControl1.SelectedIndex = 0;
+            this.TabControl1.Size = new System.Drawing.Size(466, 460);
+            this.TabControl1.TabIndex = 2;
             // 
             // materialTabSelector1
             // 
@@ -892,59 +965,18 @@
             this.materialTabSelector1.TabIndex = 1;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
-            // processbar
+            // btnUpdate
             // 
-            this.processbar.Depth = 0;
-            this.processbar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.processbar.Location = new System.Drawing.Point(0, 578);
-            this.processbar.MarqueeAnimationSpeed = 1000000;
-            this.processbar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.processbar.Name = "processbar";
-            this.processbar.Size = new System.Drawing.Size(465, 5);
-            this.processbar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.processbar.TabIndex = 3;
-            this.processbar.Value = 100;
-            // 
-            // workerHostspotSupport
-            // 
-            this.workerHostspotSupport.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerHostspotSupport_DoWork);
-            this.workerHostspotSupport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerHostspotSupport_RunWorkerCompleted);
-            // 
-            // workerICSChange
-            // 
-            this.workerICSChange.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerICSChange_DoWork);
-            this.workerICSChange.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerICSChange_RunWorkerCompleted);
-            // 
-            // workerStart
-            // 
-            this.workerStart.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerStart_DoWork);
-            this.workerStart.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerStart_RunWorkerCompleted);
-            // 
-            // workerStop
-            // 
-            this.workerStop.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerStop_DoWork);
-            this.workerStop.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerStop_RunWorkerCompleted);
-            // 
-            // workerRefresh
-            // 
-            this.workerRefresh.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerRefresh_DoWork);
-            this.workerRefresh.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerRefresh_RunWorkerCompleted);
-            // 
-            // workerUI
-            // 
-            this.workerUI.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerUI_DoWork);
-            this.workerUI.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerUI_RunWorkerCompleted);
-            // 
-            // workerDevices
-            // 
-            this.workerDevices.WorkerSupportsCancellation = true;
-            this.workerDevices.DoWork += new System.ComponentModel.DoWorkEventHandler(this.workerDevices_DoWork);
-            this.workerDevices.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.workerDevices_RunWorkerCompleted);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 5000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.ForeColor = System.Drawing.Color.Black;
+            this.btnUpdate.Location = new System.Drawing.Point(378, 34);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 31);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // MainForm
             // 
@@ -952,6 +984,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(465, 583);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.processbar);
             this.Controls.Add(this.TabControl1);
             this.Controls.Add(this.materialTabSelector1);
@@ -967,16 +1000,12 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Enter += new System.EventHandler(this.MainForm_Enter);
             this.Leave += new System.EventHandler(this.MainForm_Leave);
-            this.tabDetails.ResumeLayout(false);
-            this.tabDetails.PerformLayout();
-            this.tabControl.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.groupControl.ResumeLayout(false);
-            this.groupControl.PerformLayout();
-            this.panelControl.ResumeLayout(false);
-            this.panelControl.PerformLayout();
-            this.TabControl1.ResumeLayout(false);
+            this.tabAbout.ResumeLayout(false);
+            this.tabAbout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.automaticUpdater1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabSettings.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -988,11 +1017,16 @@
             this.groupApperance.ResumeLayout(false);
             this.groupApperance.PerformLayout();
             this.groupStartUp.ResumeLayout(false);
-            this.tabAbout.ResumeLayout(false);
-            this.tabAbout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.tabDetails.ResumeLayout(false);
+            this.tabDetails.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.groupControl.ResumeLayout(false);
+            this.groupControl.PerformLayout();
+            this.panelControl.ResumeLayout(false);
+            this.panelControl.PerformLayout();
+            this.TabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1001,61 +1035,20 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTabControl TabControl1;
-        private System.Windows.Forms.TabPage tabControl;
-        private System.Windows.Forms.GroupBox groupControl;
-        private System.Windows.Forms.TabPage tabDetails;
-        private System.Windows.Forms.TabPage tabSettings;
-        private System.Windows.Forms.TabPage tabAbout;
-        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
-        private MaterialSkin.Controls.MaterialRaisedButton btnHotspot;
-        private System.Windows.Forms.Panel panelControl;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtPass;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtSSID;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private System.Windows.Forms.Panel panel2;
-        private MaterialSkin.Controls.MaterialFlatButton btnRefreshDetails;
-        private System.Windows.Forms.PropertyGrid property1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private MaterialSkin.Controls.MaterialCheckBox checkICS;
-        private System.Windows.Forms.Panel panel3;
-        private MaterialSkin.Controls.MaterialDivider materialDivider1;
-        private System.Windows.Forms.GroupBox groupICS;
-        private MaterialSkin.Controls.MaterialListView _listview;
-        private MetroFramework.Controls.MetroComboBox comboNetwork;
-        private MaterialSkin.Controls.MaterialRadioButton radioNetAdapter;
-        private MaterialSkin.Controls.MaterialRadioButton radioNetName;
-        private MaterialSkin.Controls.MaterialRaisedButton btnSetICS;
-        private System.Windows.Forms.GroupBox groupApperance;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private System.Windows.Forms.GroupBox groupStartUp;
-        private MaterialSkin.Controls.MaterialCheckBox checkStartUp2;
-        private MaterialSkin.Controls.MaterialCheckBox checkStartUp1;
-        private MaterialSkin.Controls.MaterialCheckBox checkExit;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private MaterialSkin.Controls.MaterialProgressBar processbar;
         private System.ComponentModel.BackgroundWorker workerHostspotSupport;
         private System.ComponentModel.BackgroundWorker workerICSChange;
-        private MetroFramework.Controls.MetroComboBox comboColorStyle;
-        private MetroFramework.Controls.MetroComboBox comboTheme;
         private System.ComponentModel.BackgroundWorker workerStart;
         private System.ComponentModel.BackgroundWorker workerStop;
         private System.ComponentModel.BackgroundWorker workerRefresh;
         private System.ComponentModel.BackgroundWorker workerUI;
         private System.ComponentModel.BackgroundWorker workerDevices;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabAbout;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1063,10 +1056,53 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabSettings;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private MaterialSkin.Controls.MaterialCheckBox checkICS;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox groupICS;
+        private MaterialSkin.Controls.MaterialRaisedButton btnSetICS;
+        private MaterialSkin.Controls.MaterialRadioButton radioNetAdapter;
+        private MaterialSkin.Controls.MaterialRadioButton radioNetName;
+        private MetroFramework.Controls.MetroComboBox comboNetwork;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private System.Windows.Forms.GroupBox groupApperance;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MetroFramework.Controls.MetroComboBox comboColorStyle;
+        private MetroFramework.Controls.MetroComboBox comboTheme;
+        private System.Windows.Forms.GroupBox groupStartUp;
+        private MaterialSkin.Controls.MaterialCheckBox checkExit;
+        private MaterialSkin.Controls.MaterialCheckBox checkStartUp2;
+        private MaterialSkin.Controls.MaterialCheckBox checkStartUp1;
+        private System.Windows.Forms.TabPage tabDetails;
+        private MaterialSkin.Controls.MaterialFlatButton btnRefreshDetails;
+        private System.Windows.Forms.PropertyGrid property1;
+        private System.Windows.Forms.TabPage tabControl;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panel2;
+        private MaterialSkin.Controls.MaterialListView _listview;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.GroupBox groupControl;
+        private System.Windows.Forms.Panel panelControl;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtPass;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtSSID;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialRaisedButton btnHotspot;
+        private MaterialSkin.Controls.MaterialTabControl TabControl1;
+        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
+        private System.Windows.Forms.Button btnUpdate;
+        private wyDay.Controls.AutomaticUpdater automaticUpdater1;
 
     }
 }
