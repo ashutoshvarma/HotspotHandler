@@ -42,6 +42,9 @@
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("License : - http://creativecommons.org/licenses/by-sa/3.0/");
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("2, bar, signal, wifi icon", new System.Windows.Forms.TreeNode[] {
             treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Codeplex :-https://crashreporterdotnet.codeplex.com");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("CrashReporter.NET", new System.Windows.Forms.TreeNode[] {
+            treeNode9});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.processbar = new MaterialSkin.Controls.MaterialProgressBar();
             this.workerHostspotSupport = new System.ComponentModel.BackgroundWorker();
@@ -285,11 +288,16 @@
             treeNode8.Name = "Node11";
             treeNode8.NodeFont = new System.Drawing.Font("Raleway", 8.999999F);
             treeNode8.Text = "2, bar, signal, wifi icon";
+            treeNode9.Name = "Node2";
+            treeNode9.Text = "Codeplex :-https://crashreporterdotnet.codeplex.com";
+            treeNode10.Name = "Node1";
+            treeNode10.Text = "CrashReporter.NET";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2,
             treeNode4,
             treeNode6,
-            treeNode8});
+            treeNode8,
+            treeNode10});
             this.treeView1.Size = new System.Drawing.Size(396, 85);
             this.treeView1.TabIndex = 7;
             // 
